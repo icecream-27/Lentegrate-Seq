@@ -233,7 +233,8 @@ def analyze(sam_filename, reference_genome, outfile, annotations,out_cons,outimg
             
             # if int(mapq) >= 60 and int(sam_flag) > 128 and "S" not in MC and int(NM)==0 and MD.isdigit() and 115<=int(MD)<=118 and -1000< int(template_length) < 0:
             # if int(mapq) >= 60:
-            if int(mapq) >= 60 and (int(sam_flag) ==163 or int(sam_flag) == 147) and (len(S_lis)==1 and len(M_lis)==1 and 32<=num_s<=35) and int(template_length)<0:
+            # if int(mapq) >= 60 and (int(sam_flag) ==163 or int(sam_flag) == 147) and (len(S_lis)==1 and len(M_lis)==1 and 32<=num_s<=35) and int(template_length)<0:
+            if int(mapq) >= 60 and (int(sam_flag) == 163 or int(sam_flag) == 147) and (len(M_lis) == 1 and 110<=sum(M_lis)):
              
                 barcode, count = parseReadName(full_read_name)
                 primer = assignPrimerstoReads(read_sequence, sam_flag)
