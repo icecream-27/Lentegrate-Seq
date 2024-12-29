@@ -131,11 +131,11 @@ class GuideSeq:
             for sample in self.samples:
                 if sample != "control":
                     sample_alignment_path = os.path.join(self.output_folder, 'aligned', sample + '.sam')
-                    # alignReads(self.BWA_path,
-                    #          self.reference_genome,
-                    #          self.consolidated[sample]['read1'],
-                    #          self.consolidated[sample]['read2'],
-                    #          sample_alignment_path)
+                    alignReads(self.BWA_path,
+                             self.reference_genome,
+                             self.consolidated[sample]['read1'],
+                             self.consolidated[sample]['read2'],
+                             sample_alignment_path)
                     self.aligned[sample] = sample_alignment_path
                     logger.info('Finished aligning reads to genome.')
 
